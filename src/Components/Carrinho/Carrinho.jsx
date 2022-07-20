@@ -1,12 +1,14 @@
 import React from 'react'
 import { CarrinhoDiv } from './CarrinhoStyled';
+import { MockUp } from './../MockUp/MockUp';
+import { CardCarrinho } from './../CardCarrinho/CardCarrinho';
 
 
 export function Carrinho() {
+
     return (
         <CarrinhoDiv>
-            <h2>Carrinho</h2>
-            <p>Valor total: <span>9</span> </p>
+            <CardCarrinho meuCardCarrinho={MockUp} />
         </CarrinhoDiv>
     )
 }

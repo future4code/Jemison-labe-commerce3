@@ -3,14 +3,17 @@ import { CardBox } from './CardStyled';
 
 export function Card({meuTeste}) {
 
-    // const [addCarrinho, setAddCarrinho] = useState(false)
-
-    // const arrayCarrinho = [...arrayCartas]
+    const [addCarrinho, setAddCarrinho] = useState({ })
 
     const adicionarCarrinho = (e) => {
         e.preventDefault();
+        setAddCarrinho({        
+            nome: meuTeste.nome,
+            foto: meuTeste.foto,
+            preco: meuTeste.preco
+        })
         const novoItemCarrinho = {meuTeste}
-        console.log(novoItemCarrinho)
+        console.log(addCarrinho)
     }
 
     const arrayCartas = meuTeste.map((item, index) => {
