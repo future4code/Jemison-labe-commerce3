@@ -32,65 +32,62 @@ export function Principal() {
         { nome: "Nave basic x", preco: 2000 },
         { nome: "Nave basic", preco: 1000 }
     ]
+    const [buscaNome, setBuscaNome] = useState('');
+    const [precoMin, setPrecoMin] = useState(null);
+    const [precoMax, setPrecoMax] = useState(null);
+    const [listaDeProdutosFiltrada, setListaDeProdutosFiltrada] = useState([]);
 
-    export function Principal() {
-        const [buscaNome, setBuscaNome] = useState('');
-        const [precoMin, setPrecoMin] = useState(null);
-        const [precoMax, setPrecoMax] = useState(null);
-        const [listaDeProdutosFiltrada, setListaDeProdutosFiltrada] = useState([]);
-
-        const filterByPreco = (preco) => {
-            return preco >= precoMin && preco <= precoMax;
-        }
-
-        // const filtrarPorNome=listaDeProdutos.filter((produto)=>{
-        // return produto.nome.includes(buscaNome)
-        // })
-
-        const filterByNome = (nome) => {
-            return nome.toLowerCase().includes(buscaNome);
-        }
-
-        useMemo(() => {
-            setListaDeProdutosFiltrada(listaDeProdutos.filter(produto => filterByPreco(produto.preco) && filterByNome(produto.nome)))
-        }, [buscaNome, precoMin, precoMax]);
-
-        const onChangeBuscaNome = (e) => {
-            e.preventDefault();
-            if (!e.target.value) {
-                return (setBuscaNome(''))
-            } else {
-                return (setBuscaNome(e.target.value.toLowerCase()));
-            }
-
-            //setBuscaNome(e.target.value.toLowerCase()) //Revisar a questão do props
-        }
-
-
-        const onChangePrecoMin = (e) => {
-            e.preventDefault();
-            if (!e.target.value) {
-                setPrecoMin(null)
-            } else {
-                setPrecoMin(e.target.value)
-            }
-        };
-
-        const onChangePrecoMax = (e) => {
-            e.preventDefault();
-            if (!e.target.value) {
-                setPrecoMax(null)
-            } else {
-                setPrecoMax(e.target.value);
-            };
-        }
-
-        return (
-            <DivPrincipal>
-                <Filter onChangeBuscaNome={onChangeBuscaNome} onChangePrecoMin={onChangePrecoMin} onChangePrecoMax={onChangePrecoMax} addCar={adicionarCarrinho} />
-                <Main produtos={buscaNome || precoMin || precoMax ? listaDeProdutosFiltrada : listaDeProdutos} />
-                <Carrinho arrayModificado={addCarrinho} />
-            </DivPrincipal>
-        )
+    const filterByPreco = (preco) => {
+        return preco >= precoMin && preco <= precoMax;
     }
+
+    // const filtrarPorNome=listaDeProdutos.filter((produto)=>{
+    // return produto.nome.includes(buscaNome)
+    // })
+
+    const filterByNome = (nome) => {
+        return nome.toLowerCase().includes(buscaNome);
+    }
+
+    useMemo(() => {
+        setListaDeProdutosFiltrada(listaDeProdutos.filter(produto => filterByPreco(produto.preco) && filterByNome(produto.nome)))
+    }, [buscaNome, precoMin, precoMax]);
+
+    const onChangeBuscaNome = (e) => {
+        e.preventDefault();
+        if (!e.target.value) {
+            return (setBuscaNome(''))
+        } else {
+            return (setBuscaNome(e.target.value.toLowerCase()));
+        }
+
+        //setBuscaNome(e.target.value.toLowerCase()) //Revisar a questão do props
+    }
+
+
+    const onChangePrecoMin = (e) => {
+        e.preventDefault();
+        if (!e.target.value) {
+            setPrecoMin(null)
+        } else {
+            setPrecoMin(e.target.value)
+        }
+    };
+
+    const onChangePrecoMax = (e) => {
+        e.preventDefault();
+        if (!e.target.value) {
+            setPrecoMax(null)
+        } else {
+            setPrecoMax(e.target.value);
+        };
+    }
+
+    return (
+        <DivPrincipal>
+            <Filter onChangeBuscaNome={onChangeBuscaNome} onChangePrecoMin={onChangePrecoMin} onChangePrecoMax={onChangePrecoMax} addCar={adicionarCarrinho} />
+            <Main produtos={buscaNome || precoMin || precoMax ? listaDeProdutosFiltrada : listaDeProdutos} />
+            <Carrinho arrayModificado={addCarrinho} />
+        </DivPrincipal>
+    )
 }
