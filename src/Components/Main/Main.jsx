@@ -4,8 +4,6 @@ import { Card } from '../Card/Card'
 import { MockUp } from './../MockUp/MockUp';
 
 export function Main(props) {
-
-
     return (
         <DivPai>
             <Quantidade>
@@ -19,7 +17,7 @@ export function Main(props) {
                 </form>
             </Quantidade>
             <DivCards>
-                <Card  meuTeste={MockUp} addCar1={props.addCar}/>
+                {props.produtos.map((produto, index) => <Card nome={produto.nome} preco={produto.preco} key={index} meuTeste={MockUp} addCar1={props.addCar}></Card>)}
             </DivCards >
         </DivPai>
     )
