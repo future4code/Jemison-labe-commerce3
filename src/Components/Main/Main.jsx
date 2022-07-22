@@ -3,7 +3,9 @@ import { DivPai, DivCards, Quantidade } from './MainStyled'
 import { Card } from '../Card/Card'
 import { MockUp } from './../MockUp/MockUp';
 
-export function Main() {
+export function Main(props) {
+
+
     return (
         <DivPai>
             <Quantidade>
@@ -17,7 +19,8 @@ export function Main() {
                 </form>
             </Quantidade>
             <DivCards>
-                <Card  meuTeste={MockUp}/>
+                <Card  meuTeste={MockUp} addCar1={props.addCar}/>
+                <button onClick={() => props.addCar(1)}>dasasfa</button>
             </DivCards >
         </DivPai>
     )

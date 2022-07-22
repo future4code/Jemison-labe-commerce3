@@ -1,28 +1,16 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { CardBox } from './CardStyled';
 
-export function Card({meuTeste}) {
+export function Card(props) {
 
-    const [addCarrinho, setAddCarrinho] = useState({ })
-
-    const adicionarCarrinho = (e) => {
-        e.preventDefault();
-        setAddCarrinho({        
-            nome: meuTeste.nome,
-            foto: meuTeste.foto,
-            preco: meuTeste.preco
-        })
-        const novoItemCarrinho = {meuTeste}
-        console.log(addCarrinho)
-    }
-
-    const arrayCartas = meuTeste.map((item, index) => {
+    
+    const arrayCartas = props.meuTeste.map((item, index) => {
         return (
             <CardBox>
                 <h1>{item.nome}</h1>
-                <p>{item.foto}</p>
+                <img src={item.foto} alt={item.nome} />
                 <p>{item.preco}</p>
-                <button onClick={adicionarCarrinho}>Comprar</button>
+                <button onClick={() => props.addCar1(item.id)}>Comprar</button>
             </CardBox>
         )
     })
