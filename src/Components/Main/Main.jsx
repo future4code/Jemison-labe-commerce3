@@ -20,7 +20,6 @@ export function Main(props) {
             </Quantidade>
             <DivCards>
                 <Card  meuTeste={MockUp} addCar1={props.addCar}/>
-                <button onClick={() => props.addCar(1)}>dasasfa</button>
             </DivCards >
         </DivPai>
     )

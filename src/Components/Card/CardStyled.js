@@ -4,8 +4,8 @@ export const CardBox = styled.div`
     display: flex;
     flex-direction: column;
     background-color: #6AA;
-    width: 15em;
-    height: 20em;
+    width: 17em;
+    height: 25em;
     align-items: center;
     margin: 2em 2em;
 `

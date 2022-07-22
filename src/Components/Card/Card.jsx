@@ -4,7 +4,7 @@ import { CardBox } from './CardStyled';
 export function Card(props) {
 
     
-    const arrayCartas = props.meuTeste.map((item, index) => {
+    const arrayCartas = props.meuTeste.map((item) => {
         return (
             <CardBox>
                 <h1>{item.nome}</h1>

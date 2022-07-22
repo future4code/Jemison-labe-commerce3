@@ -12,18 +12,18 @@ export function Principal() {
     const [addCarrinho, setAddCarrinho] = useState([{}])
     const adicionarCarrinho = (id) => {
         addCarrinho.map((item) => {
-            if (id == item.id) {
+            if (id === item.id) {
                 meuTeste.quant++
                 return addCarrinho
             } else {
-                const novoCarrinho = meuTeste[id]
+                const novoCarrinho = meuTeste[id-1]
                 const listaCarrinho = [...addCarrinho, novoCarrinho]
                 setAddCarrinho(listaCarrinho)
                 return addCarrinho
             }
         })
     }
-    console.log(addCarrinho)
+
     return (
         <DivPrincipal>
             <Filter />
@@ -32,4 +32,3 @@ export function Principal() {
         </DivPrincipal>
     )
 }
-
