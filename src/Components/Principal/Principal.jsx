@@ -7,16 +7,16 @@ import { MockUp } from './../MockUp/MockUp';
 
 export function Principal() {
 
-    const meuTeste = MockUp
+    const listaDeProdutos = MockUp
 
     const [addCarrinho, setAddCarrinho] = useState([{}])
     const adicionarCarrinho = (id) => {
         addCarrinho.map((item) => {
             if (id === item.id) {
-                meuTeste.quant++
+                listaDeProdutos.quant++
                 return addCarrinho
             } else {
-                const novoCarrinho = meuTeste[id - 1]
+                const novoCarrinho = listaDeProdutos[id - 1]
                 const listaCarrinho = [...addCarrinho, novoCarrinho]
                 setAddCarrinho(listaCarrinho)
                 return addCarrinho
@@ -24,14 +24,15 @@ export function Principal() {
         })
     }
 
-    const listaDeProdutos = [
-        { nome: "Nave premium", preco: 5000 },
-        { nome: "Nave especial vip", preco: 4000 },
-        { nome: "Nave confort plus", preco: 3000 },
-        { nome: "Nave confort", preco: 3500 },
-        { nome: "Nave basic x", preco: 2000 },
-        { nome: "Nave basic", preco: 1000 }
-    ]
+    // const listaDeProdutos = [
+    //     { nome: "Nave premium", preco: 5000 },
+    //     { nome: "Nave especial vip", preco: 4000 },
+    //     { nome: "Nave confort plus", preco: 3000 },
+    //     { nome: "Nave confort", preco: 3500 },
+    //     { nome: "Nave basic x", preco: 2000 },
+    //     { nome: "Nave basic", preco: 1000 }
+    // ]
+
     const [buscaNome, setBuscaNome] = useState('');
     const [precoMin, setPrecoMin] = useState(null);
     const [precoMax, setPrecoMax] = useState(null);

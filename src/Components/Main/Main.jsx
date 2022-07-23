@@ -4,6 +4,7 @@ import { Card } from '../Card/Card'
 import { MockUp } from './../MockUp/MockUp';
 
 export function Main(props) {
+
     return (
         <DivPai>
             <Quantidade>
