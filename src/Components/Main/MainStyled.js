@@ -4,7 +4,8 @@ import styled from 'styled-components'
 export const DivPai = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
+    
 `
 
 export const Quantidade = styled.div`
@@ -16,6 +17,10 @@ export const Quantidade = styled.div`
 `
 
 export const DivCards = styled.div`
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 20em);
+    grid-template-rows: 00px;
     margin: 0 auto;
     height: 90vh;
 `
