@@ -64,13 +64,13 @@ export function Principal() {
     // return produto.nome.includes(buscaNome)
     // })
 
-    const filterByNome = (nome) => {
-        return nome.toLowerCase().includes(buscaNome);
-    }
+    // const filterByNome = (nome) => {
+    //     return nome.toLowerCase().includes(buscaNome);
+    // }
 
-    useMemo(() => {
-        setListaDeProdutosFiltrada(meuTeste.filter(produto => filterByPreco(produto.preco) && filterByNome(produto.nome)))
-    }, [buscaNome, precoMin, precoMax]);
+    // useMemo(() => {
+    //     setListaDeProdutosFiltrada(meuTeste.filter(produto => filterByPreco(produto.preco) && filterByNome(produto.nome)))
+    // }, [buscaNome, precoMin, precoMax]);
 
     const onChangeBuscaNome = (e) => {
         e.preventDefault();

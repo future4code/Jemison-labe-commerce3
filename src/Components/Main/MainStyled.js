@@ -19,8 +19,7 @@ export const Quantidade = styled.div`
 export const DivCards = styled.div`
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(4, 20em);
-    grid-template-rows: 00px;
+    grid-template-columns: repeat(4, 1fr);
     margin: 0 auto;
     height: 90vh;
 `

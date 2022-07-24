@@ -4,9 +4,9 @@ import { CardBox, Fdp } from './CardStyled';
 export function Card(props) {
 
 
-    const arrayCartas = props.meuTeste.map((item) => {
+    const arrayCartas = props.meuTeste.map((item, index) => {
         return (
-            <CardBox>
+            <CardBox key={index}>
                 <h1>{item.nome}</h1>
                 <img src={item.foto} alt={item.nome} />
                 <p>{item.preco}</p>
