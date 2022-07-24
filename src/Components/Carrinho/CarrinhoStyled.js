@@ -4,7 +4,7 @@ export const CarrinhoDiv = styled.div`
     display: flex;
     flex-direction: column;
     border: 1px solid #000;
-    width: 25em;
+    width: 22em;
     padding: 0 1.5em;
 `
 
@@ -22,7 +22,7 @@ export const DivItem = styled.div`
         padding-left: 6px;
     }
     p {
-        font-size: 0.9em;
+        font-size: 0.75em;
         font-weight: 600;
         width: 12em;
         text-align: center;

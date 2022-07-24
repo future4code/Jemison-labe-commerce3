@@ -8,7 +8,7 @@ export function Main(props) {
     return (
         <DivPai>
             <Quantidade>
-                <p>Quantidade de produtos: <span>10</span></p>
+                <p>Quantidade de produtos: {props.listaTotalProdutos.length}</p>
                 <form>
                     <label for="Ordem">Ordenar: </label>
                     <select id="ordens">
@@ -18,7 +18,7 @@ export function Main(props) {
                 </form>
             </Quantidade>
             <DivCards>
-                {props.produtos.map((produto, index) => <Card nome={produto.nome} preco={produto.preco} key={index} meuTeste={MockUp} addCar1={props.addCar}></Card>)}
+                <Card meuTeste={MockUp} idCarrinho1={props.idCarrinho} ></Card>
             </DivCards >
         </DivPai>
     )

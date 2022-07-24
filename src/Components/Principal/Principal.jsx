@@ -7,36 +7,54 @@ import { MockUp } from './../MockUp/MockUp';
 
 export function Principal() {
 
-    const listaDeProdutos = MockUp
-
-    const [addCarrinho, setAddCarrinho] = useState([{}])
-    const adicionarCarrinho = (id) => {
-        addCarrinho.map((item) => {
-            if (id === item.id) {
-                listaDeProdutos.quant++
-                return addCarrinho
-            } else {
-                const novoCarrinho = listaDeProdutos[id - 1]
-                const listaCarrinho = [...addCarrinho, novoCarrinho]
-                setAddCarrinho(listaCarrinho)
-                return addCarrinho
-            }
-        })
-    }
+    const meuTeste = MockUp
 
     // const listaDeProdutos = [
-    //     { nome: "Nave premium", preco: 5000 },
-    //     { nome: "Nave especial vip", preco: 4000 },
-    //     { nome: "Nave confort plus", preco: 3000 },
-    //     { nome: "Nave confort", preco: 3500 },
-    //     { nome: "Nave basic x", preco: 2000 },
-    //     { nome: "Nave basic", preco: 1000 }
+    //     { id: 1, nome: "Nave premium", foto: 'https://i.imgur.com/rM4M3mh.png', preco: 5000, quant: 1},
+    //     { id: 2, nome: "Nave especial vip", preco: 4000, quant: 1 },
+    //     { id: 3, nome: "Nave confort plus", preco: 3000, quant: 1 },
+    //     { id: 4, nome: "Nave confort", preco: 3500, quant: 1 },
+    //     { id: 5, nome: "Nave basic x", preco: 2000, quant: 1 },
+    //     { id: 6, nome: "Nave basic", preco: 1000, quant: 1 }
     // ]
 
     const [buscaNome, setBuscaNome] = useState('');
-    const [precoMin, setPrecoMin] = useState(null);
-    const [precoMax, setPrecoMax] = useState(null);
+    const [precoMin, setPrecoMin] = useState();
+    const [precoMax, setPrecoMax] = useState();
     const [listaDeProdutosFiltrada, setListaDeProdutosFiltrada] = useState([]);
+
+
+    const [addCarrinho, setAddCarrinho] = useState([{}])
+
+    const adicionarCarrinho = (id) => {
+        addCarrinho.map((item, key) => {
+            if (id !== item.id) {
+                const novoCarrinho = meuTeste[id - 1]
+                const listaCarrinho = [...addCarrinho, novoCarrinho]
+                setAddCarrinho(listaCarrinho)
+                return addCarrinho
+            } else {
+                return addCarrinho[id].quant++
+            }
+        }) 
+    }
+    // const adicionarCarrinho = (item) => {
+    //     let novoCarrinho = [...meuTeste]
+    //     let testeCarrinho = meuTeste.find((item) => produto.nome === item.nome)
+         
+    //     if (testeCarrinho) {
+    //         testeCarrinho.quant++
+    //     }else {
+    //         testeCarrinho = {...produto, quant: 1}
+    //         novoCarrinho.push(testeCarrinho)
+    //     }
+    //     setAddCarrinho(novoCarrinho)
+    // }
+
+
+
+
+
 
     const filterByPreco = (preco) => {
         return preco >= precoMin && preco <= precoMax;
@@ -51,7 +69,7 @@ export function Principal() {
     }
 
     useMemo(() => {
-        setListaDeProdutosFiltrada(listaDeProdutos.filter(produto => filterByPreco(produto.preco) && filterByNome(produto.nome)))
+        setListaDeProdutosFiltrada(meuTeste.filter(produto => filterByPreco(produto.preco) && filterByNome(produto.nome)))
     }, [buscaNome, precoMin, precoMax]);
 
     const onChangeBuscaNome = (e) => {
@@ -86,8 +104,8 @@ export function Principal() {
 
     return (
         <DivPrincipal>
-            <Filter onChangeBuscaNome={onChangeBuscaNome} onChangePrecoMin={onChangePrecoMin} onChangePrecoMax={onChangePrecoMax} addCar={adicionarCarrinho} />
-            <Main produtos={buscaNome || precoMin || precoMax ? listaDeProdutosFiltrada : listaDeProdutos} />
+            <Filter onChangeBuscaNome={onChangeBuscaNome} onChangePrecoMin={onChangePrecoMin} onChangePrecoMax={onChangePrecoMax}  />
+            <Main produtos={buscaNome || precoMin || precoMax ? listaDeProdutosFiltrada : meuTeste}  idCarrinho={adicionarCarrinho} listaTotalProdutos={MockUp}/>
             <Carrinho arrayModificado={addCarrinho} />
         </DivPrincipal>
     )

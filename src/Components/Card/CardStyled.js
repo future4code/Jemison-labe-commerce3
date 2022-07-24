@@ -9,3 +9,7 @@ export const CardBox = styled.div`
     align-items: center;
     margin: 2em 2em;
 `
+export const Fdp = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+`
