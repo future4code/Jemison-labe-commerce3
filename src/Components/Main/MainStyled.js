@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 
-
 export const DivPai = styled.div`
     display: flex;
     flex-direction: column;
     width: 80%;
     
 `
-
 export const Quantidade = styled.div`
     display: flex;
     width: 100%;
@@ -15,7 +13,6 @@ export const Quantidade = styled.div`
     align-items: center;
     padding: 0 2em;
 `
-
 export const DivCards = styled.div`
     display: grid;
     justify-items: center;

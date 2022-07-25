@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react'
 import { DivPai, DivCards, Quantidade } from './MainStyled'
-import { MockUp } from './../MockUp/MockUp';
 import { Card } from './../Card/Card';
 
 export function Main(props) {

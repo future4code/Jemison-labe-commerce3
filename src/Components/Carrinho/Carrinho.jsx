@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-// import { MockUp } from '../MockUp/MockUp';
 import { CarrinhoDiv, DivItem, Botoes, Xis } from './CarrinhoStyled';
 
 

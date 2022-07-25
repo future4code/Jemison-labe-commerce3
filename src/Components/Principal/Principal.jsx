@@ -28,18 +28,6 @@ export function Principal() {
             }
         }) 
     }
-    // const adicionarCarrinho = (item) => {
-    //     let novoCarrinho = [...meuTeste]
-    //     let testeCarrinho = meuTeste.find((item) => produto.nome === item.nome)
-         
-    //     if (testeCarrinho) {
-    //         testeCarrinho.quant++
-    //     }else {
-    //         testeCarrinho = {...produto, quant: 1}
-    //         novoCarrinho.push(testeCarrinho)
-    //     }
-    //     setAddCarrinho(novoCarrinho)
-    // }
 
     const filterByPreco = (preco) => {
         return preco >= precoMin && preco <= precoMax;

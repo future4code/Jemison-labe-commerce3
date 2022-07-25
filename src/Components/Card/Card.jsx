@@ -3,7 +3,6 @@ import { CardBox, Fdp } from './CardStyled';
 
 export function Card(props) {
 
-
     const arrayCartas = props.meuTeste.map((item, index) => {
         return (
             <CardBox key={index}>
