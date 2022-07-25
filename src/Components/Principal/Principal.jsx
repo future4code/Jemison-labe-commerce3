@@ -9,20 +9,10 @@ export function Principal() {
 
     const meuTeste = MockUp
 
-    // const listaDeProdutos = [
-    //     { id: 1, nome: "Nave premium", foto: 'https://i.imgur.com/rM4M3mh.png', preco: 5000, quant: 1},
-    //     { id: 2, nome: "Nave especial vip", preco: 4000, quant: 1 },
-    //     { id: 3, nome: "Nave confort plus", preco: 3000, quant: 1 },
-    //     { id: 4, nome: "Nave confort", preco: 3500, quant: 1 },
-    //     { id: 5, nome: "Nave basic x", preco: 2000, quant: 1 },
-    //     { id: 6, nome: "Nave basic", preco: 1000, quant: 1 }
-    // ]
-
     const [buscaNome, setBuscaNome] = useState('');
-    const [precoMin, setPrecoMin] = useState();
-    const [precoMax, setPrecoMax] = useState();
+    const [precoMin, setPrecoMin] = useState(0);
+    const [precoMax, setPrecoMax] = useState(999999999);
     const [listaDeProdutosFiltrada, setListaDeProdutosFiltrada] = useState([]);
-
 
     const [addCarrinho, setAddCarrinho] = useState([{}])
 
@@ -51,26 +41,17 @@ export function Principal() {
     //     setAddCarrinho(novoCarrinho)
     // }
 
-
-
-
-
-
     const filterByPreco = (preco) => {
         return preco >= precoMin && preco <= precoMax;
     }
 
-    // const filtrarPorNome=listaDeProdutos.filter((produto)=>{
-    // return produto.nome.includes(buscaNome)
-    // })
+    const filterByNome = (nome) => {
+        return nome.toLowerCase().includes(buscaNome);
+    }
 
-    // const filterByNome = (nome) => {
-    //     return nome.toLowerCase().includes(buscaNome);
-    // }
-
-    // useMemo(() => {
-    //     setListaDeProdutosFiltrada(meuTeste.filter(produto => filterByPreco(produto.preco) && filterByNome(produto.nome)))
-    // }, [buscaNome, precoMin, precoMax]);
+    useMemo(() => {
+        setListaDeProdutosFiltrada(meuTeste.filter(produto => filterByNome(produto.nome) && filterByPreco(produto.preco)));
+    }, [buscaNome, precoMin, precoMax]);
 
     const onChangeBuscaNome = (e) => {
         e.preventDefault();
@@ -79,15 +60,12 @@ export function Principal() {
         } else {
             return (setBuscaNome(e.target.value.toLowerCase()));
         }
-
-        //setBuscaNome(e.target.value.toLowerCase()) //Revisar a questão do props
     }
-
 
     const onChangePrecoMin = (e) => {
         e.preventDefault();
         if (!e.target.value) {
-            setPrecoMin(null)
+            setPrecoMin(0)
         } else {
             setPrecoMin(e.target.value)
         }
@@ -96,7 +74,7 @@ export function Principal() {
     const onChangePrecoMax = (e) => {
         e.preventDefault();
         if (!e.target.value) {
-            setPrecoMax(null)
+            setPrecoMax(999999999)
         } else {
             setPrecoMax(e.target.value);
         };

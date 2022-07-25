@@ -6,26 +6,17 @@ import { Card } from './../Card/Card';
 
 export function Main(props) {
 
-    const [productsList, setProductsList] = useState(MockUp);
-
-
     const filterProdutos = (event) => {
-
-        let products = productsList;
-
         if (event.target.value === 'menor preco') {
-            products.sort((a, b) => {
+            props.produtos.sort((a, b) => {
                 return a.preco - b.preco;
             });
-            setProductsList(products);
         } else if (event.target.value === 'maior preco') {
-            products.sort((a, b) => {
+            props.produtos.sort((a, b) => {
                 return b.preco - a.preco;
             });
-            setProductsList(products);
         }
     };
-
 
     return (
         <DivPai>
@@ -41,7 +32,7 @@ export function Main(props) {
                 </form>
             </Quantidade>
             <DivCards> 
-                <Card meuTeste={MockUp} idCarrinho1={props.idCarrinho}></Card>
+                <Card meuTeste={props.produtos} idCarrinho1={props.idCarrinho}></Card>
             </DivCards >
         </DivPai >
     )
