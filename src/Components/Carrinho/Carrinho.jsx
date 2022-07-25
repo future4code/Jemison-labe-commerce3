@@ -4,8 +4,6 @@ import { CarrinhoDiv, DivItem, Botoes, Xis } from './CarrinhoStyled';
 
 
 export function Carrinho({arrayModificado}) {
-
-    console.log(arrayModificado)
     const [botaoQuant, setBotaoQuant] = useState(1)
 
     const adicionaQuantMais = () => {
